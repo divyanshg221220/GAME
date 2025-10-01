@@ -1,10 +1,12 @@
 // ROCK PAPER SCISSORS
 #include <stdio.h>
 #include <stdlib.h>
+int player_score=0,computer_score=0;
 void welcome_message()
 {
     printf("Welcome to Rock, Paper, Scissors!\n");
 }
+
 int player_turn()
 {
     int player_move=0;
@@ -39,9 +41,17 @@ int will_play_again()
         return 0;
 }
 
+int scores(int status)
+{
+    if (status==1)
+        player_score++;
+    else if (status==0)
+        computer_score++;
+    return player_score,computer_score;
+}
+
 int main(int argc, char const *argv[])
 {
-    int player_score=0, computer_score=0;
     welcome_message();
     do
     {
@@ -60,12 +70,12 @@ int main(int argc, char const *argv[])
         else if ((player_move==1&&computer_move==3)||(player_move==2&&computer_move==1)||(player_move==3&&computer_move==2))
         {
             printf("Player wins!\n");
-            player_score++;
+            scores(1);
         }
         else if ((player_move==1&&computer_move==2)||(player_move==2&&computer_move==3)||(player_move==3&&computer_move==1))
         {
             printf("Computer wins!\n");
-            computer_score++;
+            scores(0);
         }
     } while (will_play_again()==1);
     printf("Final Scores - Player: %d, Computer: %d\n", player_score, computer_score);
