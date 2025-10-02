@@ -11,13 +11,24 @@ int player_turn()
 {
     int player_move=0;
     scanf("%d", &player_move);
+    if (player_move==1)
+        printf("Player chose: Rock\n");
+    else if (player_move==2)
+        printf("Player chose: Paper\n");
+    else if (player_move==3)
+        printf("Player chose: Scissors\n");
     return player_move;
 }
 
 int computer_turn()
 {
     int computer_move=rand()%3+1;
-    printf("Computer chose: %d\n", computer_move);
+    if (computer_move==1)
+        printf("Computer chose: Rock\n");
+    else if (computer_move==2)
+        printf("Computer chose: Paper\n");
+    else if (computer_move==3)
+        printf("Computer chose: Scissors\n");
     return computer_move;
 }
 
